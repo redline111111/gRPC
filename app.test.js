@@ -30,10 +30,10 @@ describe("Нагрузочный тест 1", () => {
           second_name: "AAAA",
           last_name: "Vladimirovich",
           description: "asd",
-          login: `User2${i}`,
+          login: `Usersa${i}`,
           hash: "asdasdasd",
           cases: [
-            { question: "Год рождения", answer: "2002" },
+            { question: "Год рожденияыв", answer: "2002" },
             { question: "Первый питомец", answer: "кот" },
           ],
         })

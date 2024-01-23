@@ -1,7 +1,7 @@
 {
   "scripts": {
     "test": "jest",
-    "start": "node ./new/reg.js"
+    "start": "node "
   },
   "dependencies": {
     "@babel/cli": "^7.23.4",
