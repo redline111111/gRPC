@@ -7,23 +7,28 @@ async function signToken(id, phone, hash, secret, expiresIn) {
 }
 
 async function registerWithoutDescript(data) {
-    const { phone, hash } = data;
-
-    try {
-        const isPhoneUsed = await findUserByPhone(phone);
-        if (isPhoneUsed) {
-            throw new Error('Пользователь с таким номером телефона уже существует');
+    return {
+        status: 200,
+        message: {
+          id: '66110f87-b8ff-4a76-940e-e2cb9145003a',
+          discription: '',
+          notificationToken: '',
+          status: 0,
+          messages_count: 0,
+          first_name: 'sadasd',
+          phone: '+79659688232',
+          second_name: 'AAAA',
+          last_name: 'Vladimirovich',
+          login: 'User30',
+          hash: '$2b$10$BaYHGWDLZmvNRvh1cRr0EeAA9ZiD1EZb8WnhjqMnHhKfewfLZATqq',
+          icon: null,
+          secret_key: null,
+          vox: null,
+          vox_pwd: null,
+          token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2zc5NjU5Njg4MjMyIiwiaGFzaCI6ImFzZGFzZGFzZCIsImlhdCI6MTcwNTk5NDI3OSwiZXhwIjoxNzA2NTk5MDc5fQ.zi3BZNmSwVd2h8X1Ffo1PC9ktn_p7swkFua2xK91SuI',
+          refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTEwZjg3LWI4ZmYtNGE3Ni05NDBlLWUyY2I5MTQ1MDAzYSIsInBob25lIjoiKzc5NjU5Njg4MjMyIiwiaGFzaCI6ImFzZGFzZGFzZCIsImlhdCI6MTcwNTk5NDI3OSwiZXhwIjoxNzA4NTg2Mjc5fQ.1IlX5IcRHrEpRLEnYxVWrCGMIqMOQRZGG0McPutNfAQ'
         }
-        const hashedPassword = await bcrypt.hash(hash, 10);
-        const newUser = await createUser({ ...data, hash: hashedPassword });
-
-        const token = await signToken(newUser.id, phone, hash, process.env.SECRET_KEY, '7d');
-        const refreshToken = await signToken(newUser.id, phone, hash, process.env.REFRESH_SECRET_KEY, '30d');
-
-        return { status: 200, message: {...newUser.toJSON(), token, refreshToken } };
-    } catch (error) {
-        console.error(error);
-    }
+      }
 }
 
 module.exports = { registerWithoutDescript };
