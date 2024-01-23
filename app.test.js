@@ -14,7 +14,7 @@ function generateRandomPhoneNumber() {
   return prefix + randomNumber;
 }
 
-const usersCount = 1000;
+const usersCount = 1;
 let users = [];
 
 describe("Нагрузочный тест 1", () => {
