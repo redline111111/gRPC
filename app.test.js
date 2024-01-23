@@ -1,5 +1,5 @@
 const supertest = require("supertest");
-const request = supertest("http://localhost:3000");
+const request = supertest("http://localhost:3001");
 
 jest.setTimeout(60 * 1000);
 const uuidv4_regular = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/
@@ -14,7 +14,7 @@ function generateRandomPhoneNumber() {
   return prefix + randomNumber;
 }
 
-const usersCount = 1;
+const usersCount = 1000;
 let users = [];
 
 describe("Нагрузочный тест 1", () => {
@@ -30,7 +30,7 @@ describe("Нагрузочный тест 1", () => {
           second_name: "AAAA",
           last_name: "Vladimirovich",
           description: "asd",
-          login: `Usera${i}`,
+          login: `User2${i}`,
           hash: "asdasdasd",
           cases: [
             { question: "Год рождения", answer: "2002" },
